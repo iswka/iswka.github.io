@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/react_native/at05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -292,8 +292,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/13/test/" itemprop="url">
-                  Hello world
+                <a class="post-title-link" href="/2017/04/14/react_native/at05/" itemprop="url">
+                  练习题
                 </a>
               
             
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T11:59:45+08:00">
-                2017-04-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T19:04:27+08:00">
+                2017-04-14
               </time>
             
 
@@ -319,6 +319,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -347,10 +369,408 @@
       
         
           
-            <ol>
-<li>red</li>
-<li>blue</li>
-<li>yellow</li>
+            <blockquote>
+<ol>
+<li>实现一个Navigator，要求包括跳转到新页面的新页面的回退，并且在页面切换时有数据传输</li>
+</ol>
+</blockquote>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import {
+    Navigator,
+    Text,
+    TextInput,
+    View,
+    TouchableOpacity,
+    StyleSheet
+} from &apos;react-native&apos;;
+
+export default class Nav extends Component {
+
+    render() {
+        // 初始化路由
+        var rootRoute = {
+            component: FirstPage,
+            nextPass: {}
+        };
+        return (
+            &lt;Navigator
+                //{/* 设置默认的路由 */}
+                initialRoute={ rootRoute }
+                //{/* 切换页面方式 */}
+                configureScene={ (route) =&gt; Navigator.SceneConfigs.PushFromRight }
+                //{/* 确定要渲染的场景 */}
+                renderScene={ (route, navigator) =&gt; {
+                    // 找到要渲染的页面
+                    var Component = route.component;
+                    // 返回组件， 把组件的route 和 navigator
+                    // 把属性也传递过去
+                    return &lt;Component { ...route.nextPass } route={ route } navigator={ navigator }/&gt;
+
+                }}
+            /&gt;
+        );
+    }
+}
+
+class SecondPage extends Component {
+    changePage() {
+        this.props.navigator.pop();
+    }
+    render() {
+        return (
+            &lt;View style={[ styles.second, styles.container ]}&gt;
+                &lt;Text&gt;接收到的数据：{ this.props.text }&lt;/Text&gt;
+                &lt;TouchableOpacity style={ styles.btn } onPress={ this.changePage.bind(this) }&gt;
+                    &lt;Text style={ styles.txt }&gt;点击返回上一页&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class FirstPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: &apos;&apos;
+        }
+    }
+    saveText(text) {
+        this.setState({
+            text: text
+        });
+    }
+    changePage() {
+        var nextRoute = {
+            component: SecondPage,
+            nextPass: {
+                text: this.state.text
+            }
+        };
+        this.props.navigator.push(nextRoute);
+    }
+    render() {
+        return (
+            &lt;View style={[ styles.first, styles.container ]}&gt;
+                &lt;TextInput placeholder={ &apos;请输入&apos; } style={ styles.input } onChangeText={ this.saveText.bind(this) }&gt;&lt;/TextInput&gt;
+                &lt;TouchableOpacity style={ styles.btn } onPress={ this.changePage.bind(this) }&gt;
+                    &lt;Text style={ styles.txt }&gt;点击进入下一页&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+    },
+    first: {
+        backgroundColor: &apos;cyan&apos;,
+    },
+    second: {
+        backgroundColor: &apos;pink&apos;,
+    },
+    input: {
+        height: 25,
+        borderWidth: 1,
+    },
+    btn: {
+        width: 150,
+        height: 20,
+        backgroundColor: &apos;yellow&apos;,
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+        borderRadius: 5,
+    },
+    txt: {
+
+    }
+});
+</code></pre><blockquote>
+<ol>
+<li>实现一个TabBar，要求至少包括四项，要求有四项标签<pre><code>import React, { Component } from &apos;react&apos;;
+import {
+    TabBarIOS,
+    Text,
+    View,
+    StyleSheet
+} from &apos;react-native&apos;;
+</code></pre></li>
+</ol>
+</blockquote>
+<pre><code>// 引入三个图片
+import movieIcon from &apos;./../public/images/movie.png&apos;;
+import homeIcon from &apos;./../public/images/home.png&apos;;
+import picIcon from &apos;./../public/images/pic.png&apos;;
+import musicIcon from &apos;./../public/images/music.png&apos;;
+
+export default class TabBar2 extends Component {
+    constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            isShow: &apos;首页&apos;
+        };
+    }
+    press(tabName) {
+        this.setState({
+            isShow: tabName
+        });
+    }
+    render() {
+        return (
+            &lt;TabBarIOS&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;首页&quot;
+                    icon={ homeIcon }
+                    onPress={ this.press.bind(this, &apos;首页&apos;) }
+                    selected={ this.state.isShow === &apos;首页&apos; }
+                &gt;
+                    &lt;FirstPage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;电影&quot;
+                    icon={ movieIcon }
+                    onPress={ this.press.bind(this, &apos;电影&apos;) }
+                    selected={ this.state.isShow === &apos;电影&apos; }
+                &gt;
+                    &lt;SecondPage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;相册&quot;
+                    icon={ picIcon }
+                    onPress={ this.press.bind(this, &apos;相册&apos;) }
+                    selected={ this.state.isShow === &apos;相册&apos; }
+                &gt;
+                    &lt;ThreePage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;音乐&quot;
+                    icon={ musicIcon }
+                    onPress={ this.press.bind(this, &apos;音乐&apos;) }
+                    selected={ this.state.isShow === &apos;音乐&apos; }
+                &gt;
+                    &lt;FourPage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+            &lt;/TabBarIOS&gt;
+        );
+    }
+}
+
+class FourPage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.four ]}&gt;
+                &lt;Text&gt;这是第四个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class ThreePage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.three ]}&gt;
+                &lt;Text&gt;这是第三个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class SecondPage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.second ]}&gt;
+                &lt;Text&gt;这是第二个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class FirstPage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.first ]}&gt;
+                &lt;Text&gt;这是第一个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+    },
+    first: {
+        backgroundColor: &apos;yellow&apos;,
+    },
+    second: {
+        backgroundColor: &apos;red&apos;,
+    },
+    three: {
+        backgroundColor: &apos;blue&apos;
+    },
+    four: {
+        backgroundColor: &apos;pink&apos;
+    }
+});
+</code></pre><blockquote>
+<ol>
+<li>实现一个电影列表，要求通过网络请求读取数据，通过ListView实现，并且在数据加载时有loading组件</li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/github/at01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/blog_head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/14/github/at01/" itemprop="url">
+                  教程：注册github账号
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T18:02:22+08:00">
+                2017-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitHub/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>github是世纪上最大的开源代码托管网站。因为是国外网站，很多人在注册的时候因为不熟悉英语而犯了难。</p>
+<p><img src="https://imgsa.baidu.com/exp/w=500/sign=fc6e323a229759ee4a5060cb82fa434e/14ce36d3d539b600ce675980ed50352ac65cb758.jpg" alt="alt github"></p>
+<ol>
+<li>打开浏览器，输入<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></li>
 </ol>
 
           
@@ -395,7 +815,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/markdown/basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -417,8 +837,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/11/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2017/04/14/markdown/basic/" itemprop="url">
+                  MarkDown-快速入门
                 </a>
               
             
@@ -434,8 +854,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T22:52:28+08:00">
-                2017-04-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T13:25:28+08:00">
+                2017-04-14
               </time>
             
 
@@ -444,6 +864,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">MarkDown</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -472,15 +914,397 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>markdown是一门很容易上手的轻量级语言<br>这里提供一个Dingus,它是一个网页应用程序，可以将MarkDown文档转换成XHTML文档。</p>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>一般由回车换行即可，MarkDown将该行为标识为一个段落【注意：这样的段落没有缩进】</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>MarkDown支持两种标题语法，Setext和tx形式。Setext用底限形式，利用=（最高阶标题）和-（第二阶标题）；<br>Atx是在行首插入1到6个#，对应HTML标题H1…H6。</p>
+<h3 id="区块代码"><a href="#区块代码" class="headerlink" title="区块代码"></a>区块代码</h3><p>区块代码使用Email形式的’&gt;’角括号</p>
+<h3 id="修辞和强调"><a href="#修辞和强调" class="headerlink" title="修辞和强调"></a>修辞和强调</h3><p>使用星号 <strong>(*)</strong> 和 <strong>(_)</strong> 底线标记需要强调的区段</p>
+<pre><code>_修辞和强调的区段_  等价于  &lt;em&gt;修辞和强调的区段&lt;/em&gt; 
+*修辞和强调的区段*  等价于  &lt;em&gt;修辞和强调的区段&lt;/em&gt;
+
+__修辞和强调的区段__  等价于  &lt;strong&gt;修辞和强调的区段&lt;/strong&gt; 
+**修辞和强调的区段**  等价于  &lt;strong&gt;修辞和强调的区段&lt;/strong&gt;
+</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表：</p>
+<p>使用星号（*）加号（+）减号（-）来作为列表的项目标记</p>
+<p>有序列表：</p>
+<p>一般是一个数字接着一个英文句点（.）作为项目标记</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>支持两种形式的链接语法： <strong>行内</strong> 和 <strong>参考</strong> 两种形式，两种都是使用角括号把文字转成链接。</p>
+<p>行内形式是直接在后面用括号直接接上链接</p>
+<pre><code>This is an [example link](http://example.com/).
+</code></pre><p>你也可以选择性的加上title属性</p>
+<pre><code>This is an [example link](http://example.com/ &quot;With a title&quot;).
+</code></pre><p>参考形式的链接让你可以为链接定一个名称，之后你可以在文件的其他地方定义该链接的内容。</p>
+<pre><code>I get 10 times more traffic from [Google][1] than from [baidu][2]
+or [MSN][3].
+
+[1]: http://google.com/ &quot;Google&quot;
+[2]: http://baidu.com/ &quot;Baidu&quot;
+[3]: http://search.msn.com/ &quot;MSN&quot;
+</code></pre><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>图片的语法和链接一样，同样有行内和参考两种形式，</p>
+<p>行内形式</p>
+<pre><code>![alt text](/path/icon.png &quot;Title&quot;)
+</code></pre><p>参考形式</p>
+<pre><code>![alt text][id]
+
+[id]: /path/icon.png &quot;Title&quot;
+</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>在一般的段落文字中，你可以使用反引号 ` 来标记代码区段，区段内的 &amp; 、 &lt; 和 &gt; 都会被转换成HTML实体，<br>这项特性让你可以很容易的在代码区段内插入HTML代码</p>
+<p>如果要建立一个已经格式化好的代码区块，只要每行缩进4个空格或者一个Tab就可以了。而 &amp; 、&lt; 和 &gt; 也一样会<br>转成HTML实体</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/react_native/components01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/blog_head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/14/react_native/components01/" itemprop="url">
+                  components01
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T09:12:19+08:00">
+                2017-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="组件之navigator"><a href="#组件之navigator" class="headerlink" title="组件之navigator"></a>组件之navigator</h2><p>使用导航器可以让你在应用的不同场景（页面）进行切换。导航器通过不同路由来分辨不同的场景。<br>利用renderScene方法，导航栏可以指定的路由来渲染场景</p>
+<p>可以通过configureScene属性获取指定路由对象的配置信息，从而改变场景的动画或者手势。查看<br>navigator.SceneConfigs来获取默认的动画和更多的场景配置选项。</p>
+<p>注意：这个组件本文说明简单，但使用上有一定难度。</p>
+<p>在使用该组件时，一般需要以下几步：<br>1. </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/angularjs/exercise01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/blog_head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/13/angularjs/exercise01/" itemprop="url">
+                  常见的Angular疑问解答
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T21:41:20+08:00">
+                2017-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angularjs/" itemprop="url" rel="index">
+                    <span itemprop="name">AngularJS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="列举你所知道的angular指令（不少于10个）"><a href="#列举你所知道的angular指令（不少于10个）" class="headerlink" title="列举你所知道的angular指令（不少于10个）"></a>列举你所知道的angular指令（不少于10个）</h3><ol>
+<li>ng-bind</li>
+<li>ng-model</li>
+<li>ng-app</li>
+<li>ng-controller</li>
+<li>ng-init</li>
+<li>ng-repeat</li>
+<li>ng-hide</li>
+<li>ng-show</li>
+<li>ng-if</li>
+<li>ng-keydown</li>
+</ol>
+<h3 id="请写出一个双向数据绑定的例子"><a href="#请写出一个双向数据绑定的例子" class="headerlink" title="请写出一个双向数据绑定的例子"></a>请写出一个双向数据绑定的例子</h3><pre><code>&lt;div ng-app=&quot;myApp&quot; ng-init=&quot;name=&apos;John&apos;&quot;&gt;
+    &lt;p&gt;姓名：&lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;&lt;/p&gt;
+    &lt;p&gt;你输入的姓名：{{ name }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><h3 id="请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行"><a href="#请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行" class="headerlink" title="请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行"></a>请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行</h3><pre><code>&lt;body ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;
+    &lt;button ng-click=&quot;handler()&quot;&gt;&lt;/button&gt;
+    &lt;p ng-show=&quot;isShow&quot;&gt;隐藏/显示&lt;/p&gt;
+    &lt;script&gt;
+        var app = angular.module(&apos;myApp&apos;, []);
+        app.controller(&apos;myCtrl&apos;, function ($scope) {
+            $scope.isShow = true;
+            $scope.handler = function () {
+                $scope.isShow = !$scope.isShow;
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre><h3 id="请举例写出angular自定义指令的方法"><a href="#请举例写出angular自定义指令的方法" class="headerlink" title="请举例写出angular自定义指令的方法"></a>请举例写出angular自定义指令的方法</h3><pre><code>app.directive(&apos;helloWorld&apos;, function () {
+    return (
+        template: &apos;&lt;h1&gt;自定义指令&lt;/h1&gt;&apos;
+    );
+});
+</code></pre><h3 id="请举例写出angular发请求的方法（如，发请求到http-localhost-8080-req-并写出返回的数据怎么得到"><a href="#请举例写出angular发请求的方法（如，发请求到http-localhost-8080-req-并写出返回的数据怎么得到" class="headerlink" title="请举例写出angular发请求的方法（如，发请求到http://localhost:8080/req),并写出返回的数据怎么得到"></a>请举例写出angular发请求的方法（如，发请求到<a href="http://localhost:8080/req),并写出返回的数据怎么得到" target="_blank" rel="external">http://localhost:8080/req),并写出返回的数据怎么得到</a></h3><pre><code>$http({
+    method: &apos;GET&apos;.
+    url: &apos;http://localhost:8080/req&apos;,
+}).then(function (res) {
+    // 成功的回调
+    console.log(res.data);
+}, function (err) {
+    // 失败的回调
+    console.log(err);
+});
+</code></pre><h3 id="ng-show-ng-hide-与-ng-if-的区别？"><a href="#ng-show-ng-hide-与-ng-if-的区别？" class="headerlink" title="ng-show/ng-hide 与 ng-if 的区别？"></a>ng-show/ng-hide 与 ng-if 的区别？</h3><p>ng-show/ng-hide: 显示或者隐藏HTML元素<br>ng-if: 如果条件为false移除HTML元素，如果条件为true，会添加移除元素，并显示。<br>两者之间最大的区别就是ng-hide是隐藏而ng-if是对DOM进行移除</p>
+<h3 id="解释下什么事-rootScope-以及和-scope-的区别？"><a href="#解释下什么事-rootScope-以及和-scope-的区别？" class="headerlink" title="解释下什么事$rootScope 以及和 $scope 的区别？"></a>解释下什么事$rootScope 以及和 $scope 的区别？</h3><p>scope是angularJS中作用域（其实就是存储数据的地方），很类似javascript的原型链。搜索的时候，<br>优先找自己的scope，如果没有找到就沿着作用域链向上搜索，直至到达根作用域rootScope。</p>
+<p>$rootScope是由angularJS加载模块的时候自动创建的，每个模块只会有1个rootScope。rootScope创建<br>好会以拂去的形式加入到$injector中。也就是说通过$injector.get(‘$rootScope’);能够获取到某个<br>模块的根作用域。更准确的来说，$rootScope是由angularJS的核心模块ng创建的。</p>
+<p>scope是html和单个controller之间的桥梁，数据绑定就靠它了。rootScope是各个controller中<br>scope的桥梁。用rootScope定义的值，可以在各个controller中使用。</p>
+<h3 id="Angular-Directive中restrict-中分别可以怎样设置？"><a href="#Angular-Directive中restrict-中分别可以怎样设置？" class="headerlink" title="Angular Directive中restrict 中分别可以怎样设置？"></a>Angular Directive中restrict 中分别可以怎样设置？</h3><p>restrict中可以分别设置：<br>A 匹配属性<br>E 匹配标签<br>C 匹配Class<br>M 匹配注释<br>AECM 混合匹配</p>
+<h3 id="ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？"><a href="#ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？" class="headerlink" title="ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？"></a>ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？</h3><p>不能使用，首先它们两个的作用域是不同，ng-click的作用域是在Angular特有的控制器内的，angular的所有的方法和属性都在控制器中的$scope中,而原生的作用域是全局的。</p>
+<p>如何实现：我们可以在ng-click表达式中调用$scope存在的方法名，然后再改方法名中可以调用JS原生对象的方法。</p>
+<p>举例说明：</p>
+<pre><code>&lt;div app=&quot;myApp&quot; controller=&quot;myCtrl&quot;&gt;
+    &lt;p ng-click=&quot;handler()&quot;&gt;找你零钱：{{ money }}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    var app = angular.module(&apos;myApp&apos;, []);
+    app.controller(&apos;myCtrl&apos;, function ($scope) {
+        $scope.money = 3.33;
+        $scope.handler = function () {
+            // 这里使用JS原生的parseInt()方法
+            return parseInt($scope.money);
+        }
+    });
+
+&lt;/script&gt;
+</code></pre><h3 id="angular中的-http是什么，有什么特点？"><a href="#angular中的-http是什么，有什么特点？" class="headerlink" title="angular中的$http是什么，有什么特点？"></a>angular中的$http是什么，有什么特点？</h3><p>$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。（类似jquery的$.ajax的对象）<br>特点：<br>可以在响应返回时用then方法来处理回调。如果使用then方法，会得到一个特殊的参数，<br>它代表了相应对象的成功或失败信息，还可以接受两个可选的函数作为参数。或者可以使用success和error回调代替。</p>
 
           
         
@@ -518,6 +1342,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -560,14 +1388,32 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -615,7 +1461,7 @@
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
