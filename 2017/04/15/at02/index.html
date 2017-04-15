@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,17 +85,20 @@
 
 
 
-<meta name="description" content="ActivityIndicator 组件作用：显示一个loading加载提示的符号。 属性： animating bool   是否要显示指示器。默认为true  color string   滚轮的前景颜色（默认为灰色）  size enum(‘small’, ‘large’)   指示器的大小。small的高度为20，large的高度为36.   WebView 组件作用创建一个原生的WebV">
+<meta name="description" content="ActivityIndicator 组件作用：显示一个loading加载提示的符号。 属性： animating bool   是否要显示指示器。默认为true  color string   滚轮的前景颜色（默认为灰色）  size enum(‘small’, ‘large’)   指示器的大小。small的高度为20，large的高度为36.   例子import React, { Compo">
 <meta name="keywords" content="ReactNative">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组件之ActivityIndicator、WebView">
 <meta property="og:url" content="http://yoursite.com/2017/04/15/at02/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="ActivityIndicator 组件作用：显示一个loading加载提示的符号。 属性： animating bool   是否要显示指示器。默认为true  color string   滚轮的前景颜色（默认为灰色）  size enum(‘small’, ‘large’)   指示器的大小。small的高度为20，large的高度为36.   WebView 组件作用创建一个原生的WebV">
-<meta property="og:updated_time" content="2017-04-15T06:24:37.000Z">
+<meta property="og:description" content="ActivityIndicator 组件作用：显示一个loading加载提示的符号。 属性： animating bool   是否要显示指示器。默认为true  color string   滚轮的前景颜色（默认为灰色）  size enum(‘small’, ‘large’)   指示器的大小。small的高度为20，large的高度为36.   例子import React, { Compo">
+<meta property="og:image" content="http://yoursite.com/2017/04/public/uploads/react_native/QQ20170415-0.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/public/uploads/react_native/at02_02.png">
+<meta property="og:updated_time" content="2017-04-15T06:52:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组件之ActivityIndicator、WebView">
-<meta name="twitter:description" content="ActivityIndicator 组件作用：显示一个loading加载提示的符号。 属性： animating bool   是否要显示指示器。默认为true  color string   滚轮的前景颜色（默认为灰色）  size enum(‘small’, ‘large’)   指示器的大小。small的高度为20，large的高度为36.   WebView 组件作用创建一个原生的WebV">
+<meta name="twitter:description" content="ActivityIndicator 组件作用：显示一个loading加载提示的符号。 属性： animating bool   是否要显示指示器。默认为true  color string   滚轮的前景颜色（默认为灰色）  size enum(‘small’, ‘large’)   指示器的大小。small的高度为20，large的高度为36.   例子import React, { Compo">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/public/uploads/react_native/QQ20170415-0.png">
 
 
 
@@ -108,7 +109,7 @@
     scheme: 'Pisces',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -141,6 +142,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?41fc030db57d5570dd22f78997dc4a7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -376,9 +387,26 @@
 <p>  指示器的大小。small的高度为20，large的高度为36.</p>
 </li>
 </ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
+import {
+    ActivityIndicator
+} from &apos;react-native&apos;;
+
+export default class activityIndicator extends Component {
+    render() {
+        return (
+            &lt;ActivityIndicator
+                style={{ marginTop: 100 }}
+                color=&quot;green&quot;
+                size=&quot;large&quot;
+            /&gt;
+        );
+    }
+}
+</code></pre><p><img src="./../../public/uploads/react_native/QQ20170415-0.png" alt="alt"></p>
 <h3 id="WebView-组件"><a href="#WebView-组件" class="headerlink" title="WebView 组件"></a>WebView 组件</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>创建一个原生的WebView，可以用于访问一个网页。</p>
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p> webView,网络视图可以在这个内部引入别的网页，使用source进入引入</p>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
 import {
     WebView
 } from &apos;react-native&apos;;
@@ -393,7 +421,8 @@ export default class WebViewCom extends React.Component {
         );
     }
 }
-</code></pre>
+</code></pre><p><img src="./../../public/uploads/react_native/at02_02.png" alt="alt"></p>
+
       
     </div>
 
@@ -549,12 +578,50 @@ export default class WebViewCom extends React.Component {
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/iswka" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://baidu.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://badiu.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         
@@ -572,7 +639,7 @@ export default class WebViewCom extends React.Component {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ActivityIndicator-组件"><span class="nav-number">1.</span> <span class="nav-text">ActivityIndicator 组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用："><span class="nav-number">1.1.</span> <span class="nav-text">作用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性："><span class="nav-number">1.2.</span> <span class="nav-text">属性：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView-组件"><span class="nav-number">2.</span> <span class="nav-text">WebView 组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">2.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用法"><span class="nav-number">2.2.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">2.3.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ActivityIndicator-组件"><span class="nav-number">1.</span> <span class="nav-text">ActivityIndicator 组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用："><span class="nav-number">1.1.</span> <span class="nav-text">作用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性："><span class="nav-number">1.2.</span> <span class="nav-text">属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView-组件"><span class="nav-number">2.</span> <span class="nav-text">WebView 组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">2.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用法"><span class="nav-number">2.2.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子-1"><span class="nav-number">2.3.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -594,7 +661,7 @@ export default class WebViewCom extends React.Component {
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -653,8 +720,6 @@ export default class WebViewCom extends React.Component {
 
 
 
-  
-
 
 
   
@@ -674,9 +739,6 @@ export default class WebViewCom extends React.Component {
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
 
 
   
