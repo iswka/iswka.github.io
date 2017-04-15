@@ -312,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/at02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/css/interview01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -334,8 +334,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/at02/" itemprop="url">
-                  组件之ActivityIndicator、WebView
+                <a class="post-title-link" href="/2017/04/15/css/interview01/" itemprop="url">
+                  一些常见的面试题
                 </a>
               
             
@@ -351,7 +351,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T14:04:23+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T20:46:28+08:00">
                 2017-04-15
               </time>
             
@@ -411,54 +411,88 @@
       
         
           
-            <h3 id="ActivityIndicator-组件"><a href="#ActivityIndicator-组件" class="headerlink" title="ActivityIndicator 组件"></a>ActivityIndicator 组件</h3><h4 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h4><p>显示一个loading加载提示的符号。</p>
-<h4 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h4><ul>
-<li><p>animating bool</p>
-<p>  是否要显示指示器。默认为true</p>
-</li>
-<li><p>color string</p>
-<p>  滚轮的前景颜色（默认为灰色）</p>
-</li>
-<li><p>size enum(‘small’, ‘large’)</p>
-<p>  指示器的大小。small的高度为20，large的高度为36.</p>
-</li>
+            <h4 id="浏览器页面有哪三层构成，分别是什么，作用是什么？"><a href="#浏览器页面有哪三层构成，分别是什么，作用是什么？" class="headerlink" title="浏览器页面有哪三层构成，分别是什么，作用是什么？"></a>浏览器页面有哪三层构成，分别是什么，作用是什么？</h4><p>构成： 结构层、表示层、行为层</p>
+<p>分别是： HTML CSS JavaScript</p>
+<p>作用： HTML实现页面结构；CSS完成页面的表现与风格；JavaScript实现一些客户端的功能与业务。</p>
+<h4 id="什么是语义化的HTML？"><a href="#什么是语义化的HTML？" class="headerlink" title="什么是语义化的HTML？"></a>什么是语义化的HTML？</h4><ul>
+<li>直观的认识标签，对于搜索引擎的抓取有好处，用正确的标签做正确的事情。</li>
+<li>html语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析。</li>
+<li>在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的。</li>
+<li>搜素引擎的爬虫依赖标签来确定上下文和各个关键字的权重，利于SEO。</li>
+<li>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</li>
 </ul>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
-import {
-    ActivityIndicator
-} from &apos;react-native&apos;;
-
-export default class activityIndicator extends Component {
-    render() {
-        return (
-            &lt;ActivityIndicator
-                style={{ marginTop: 100 }}
-                color=&quot;green&quot;
-                size=&quot;large&quot;
-            /&gt;
-        );
-    }
-}
-</code></pre><p><img src="./../../public/uploads/react_native/QQ20170415-0.png" alt="alt"></p>
-<h3 id="WebView-组件"><a href="#WebView-组件" class="headerlink" title="WebView 组件"></a>WebView 组件</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>创建一个原生的WebView，可以用于访问一个网页。</p>
-<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p> webView,网络视图可以在这个内部引入别的网页，使用source进入引入</p>
-<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
-import {
-    WebView
-} from &apos;react-native&apos;;
-
-// 引入京东手机版
-export default class WebViewCom extends React.Component {
-    render() {
-        return (
-            &lt;WebView
-                source={{ url: 'http://m.jd.com' }}
-            /&gt;
-        );
-    }
-}
-</code></pre><p><img src="./../../public/uploads/react_native/at02_02.png" alt="alt"></p>
-
+<h4 id="CSS居中（包括水平居中和垂直居中）"><a href="#CSS居中（包括水平居中和垂直居中）" class="headerlink" title="CSS居中（包括水平居中和垂直居中）"></a>CSS居中（包括水平居中和垂直居中）</h4><p>水平居中设置</p>
+<blockquote>
+<p>内联元素居中</p>
+</blockquote>
+<ol>
+<li><p>行内元素</p>
+<p> 设置 text-align:center;</p>
+</li>
+<li><p>Flex布局<br> 设置display:flex; justify-content: center;(灵活运用，支持Chrome，Firefox，IE9+)</p>
+</li>
+<li><p>设置dispaly:table-cell 再设置 vertical-align:middle;</p>
+</li>
+</ol>
+<blockquote>
+<p>块级元素居中</p>
+</blockquote>
+<ol>
+<li>定宽块状元素 设置左右margin:auto;</li>
+<li>不定宽块状元素 <ul>
+<li>在元素外加入table标签（完整的，包括table,tbody,tr,td),该元素写在td内，然后设置<br>margin: auto;</li>
+<li>给该元素设置display: inline;</li>
+<li>父元素设置position:relative和left: 50%, 子元素设置position:relative和left: 50%</li>
+</ul>
+</li>
+</ol>
+<p>垂直居中设置</p>
+<ol>
+<li>使用position:absolute(fixed),设置left,top,marign-left,margin-top的属性；</li>
+<li>使用position:fixed(absolute)属性， margin:auto这个不要忘记；</li>
+<li>使用display: table-cell属性使内容垂直居中；</li>
+<li>使用css3的新属性transfrom:translate(x,y)属性；</li>
+<li>使用:before元素</li>
+</ol>
+<h4 id="CSS3有哪些新特性？"><a href="#CSS3有哪些新特性？" class="headerlink" title="CSS3有哪些新特性？"></a>CSS3有哪些新特性？</h4><p>CSS3实现圆角（border-radius: 8px)，阴影（box-shadow: 10px)，对文字加特效（text-shadow），<br>线性渐变（gradient），变换（transform）【rotate/旋转, scale/缩放, translate/位移, skew/倾斜】</p>
+<p>增加了更多的CSS选择器、多背景、 rgba。</p>
+<h4 id="事件委托是什么？"><a href="#事件委托是什么？" class="headerlink" title="事件委托是什么？"></a>事件委托是什么？</h4><p>让利用时间冒泡的原理，让自己的所触发的时间，让他的父元素代替执行！</p>
+<h4 id="添加、删除、替换、插入到某个接点的方法"><a href="#添加、删除、替换、插入到某个接点的方法" class="headerlink" title="添加、删除、替换、插入到某个接点的方法"></a>添加、删除、替换、插入到某个接点的方法</h4><blockquote>
+<p>obj.appendChild()</p>
+<p>obj.removeChild()</p>
+<p>obj.replaceChild()</p>
+<p>obj.insertBefore()</p>
+</blockquote>
+<h4 id="什么叫优雅降级和渐进增强？"><a href="#什么叫优雅降级和渐进增强？" class="headerlink" title="什么叫优雅降级和渐进增强？"></a>什么叫优雅降级和渐进增强？</h4><ol>
+<li><p>优雅降级</p>
+<p> Web站点在所有新式浏览器中都能正常工作，如果用户使用额是老式浏览器，则代码会检查以确认它们<br> 是否能正常工作。由于IE独特的盒模型布局问题，针对不同版本的IE的hack实践过优雅降级了，为那些<br> 无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。</p>
+</li>
+<li><p>渐进增强</p>
+<p> 从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能，向页面增加无害于基础<br> 浏览器的额外样式和功能。当浏览器支持时，它们会自动地呈现出来并发挥作用。</p>
+</li>
+</ol>
+<h4 id="JavaScript原型，原型链？有什么特点？"><a href="#JavaScript原型，原型链？有什么特点？" class="headerlink" title="JavaScript原型，原型链？有什么特点？"></a>JavaScript原型，原型链？有什么特点？</h4><ol>
+<li>原型对象也是普通的对象，是对象一个自带隐式的<strong>proto</strong>属性，原型也有可能有自己的原型，如果一个原型<br>对象的原型不为null的话，我们就称之为原型链</li>
+<li>原型链是由一些用来继承和共享属性的对象组成的（有限的）对象链</li>
+</ol>
+<h4 id="如何阻止事件冒泡和默认事件"><a href="#如何阻止事件冒泡和默认事件" class="headerlink" title="如何阻止事件冒泡和默认事件"></a>如何阻止事件冒泡和默认事件</h4><blockquote>
+<p>阻止冒泡</p>
+</blockquote>
+<pre><code>现代浏览器：e.stopPropagation();
+低版本浏览器： e.cancelBubble = true;
+</code></pre><blockquote>
+<p>阻止默认事件</p>
+</blockquote>
+<pre><code>现代浏览器： e.preventDefault();
+低版本浏览器：return false;
+</code></pre><h4 id="IOS苹果和微信中音频和视频实现自动播放的方法"><a href="#IOS苹果和微信中音频和视频实现自动播放的方法" class="headerlink" title="IOS苹果和微信中音频和视频实现自动播放的方法"></a>IOS苹果和微信中音频和视频实现自动播放的方法</h4><pre><code>// 一般情况下，这样就可以自动播放了，但是一些奇葩IPone机不可以
+document.getElementById(&apos;audio&apos;).play();
+// 必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+document.addEventListener(&apos;WeixinJSBridgeReady&apos;,funciton () {
+    document.getElementById(&apos;audio&apos;).play();
+    document.getElementById(&apos;video&apos;).play();
+}, false);    
+</code></pre>
           
         
       
@@ -501,7 +535,7 @@ export default class WebViewCom extends React.Component {
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/react_native/exercise05/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/github/binddomain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -523,8 +557,8 @@ export default class WebViewCom extends React.Component {
             
               
                 
-                <a class="post-title-link" href="/2017/04/14/react_native/exercise05/" itemprop="url">
-                  练习题
+                <a class="post-title-link" href="/2017/04/15/github/binddomain/" itemprop="url">
+                  在GitHub上绑定域名
                 </a>
               
             
@@ -540,8 +574,8 @@ export default class WebViewCom extends React.Component {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T19:04:27+08:00">
-                2017-04-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T20:38:03+08:00">
+                2017-04-15
               </time>
             
 
@@ -563,8 +597,8 @@ export default class WebViewCom extends React.Component {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
+                  <a href="/categories/GitHub/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub</span>
                   </a>
                 </span>
 
@@ -601,262 +635,36 @@ export default class WebViewCom extends React.Component {
         
           
             <blockquote>
-<ol>
-<li>实现一个Navigator，要求包括跳转到新页面的新页面的回退，并且在页面切换时有数据传输</li>
-</ol>
+<p>如果我们买了一个自己的域名，那么我们只需要简单的做几步就可以把我们github上的主页和我们的域名进行绑定了。</p>
 </blockquote>
-<pre><code>import React, { Component } from &apos;react&apos;;
-import {
-    Navigator,
-    Text,
-    TextInput,
-    View,
-    TouchableOpacity,
-    StyleSheet
-} from &apos;react-native&apos;;
-
-export default class Nav extends Component {
-
-    render() {
-        // 初始化路由
-        var rootRoute = {
-            component: FirstPage,
-            nextPass: {}
-        };
-        return (
-            &lt;Navigator
-                //{/* 设置默认的路由 */}
-                initialRoute={ rootRoute }
-                //{/* 切换页面方式 */}
-                configureScene={ (route) =&gt; Navigator.SceneConfigs.PushFromRight }
-                //{/* 确定要渲染的场景 */}
-                renderScene={ (route, navigator) =&gt; {
-                    // 找到要渲染的页面
-                    var Component = route.component;
-                    // 返回组件， 把组件的route 和 navigator
-                    // 把属性也传递过去
-                    return &lt;Component { ...route.nextPass } route={ route } navigator={ navigator }/&gt;
-
-                }}
-            /&gt;
-        );
-    }
-}
-
-class SecondPage extends Component {
-    changePage() {
-        this.props.navigator.pop();
-    }
-    render() {
-        return (
-            &lt;View style={[ styles.second, styles.container ]}&gt;
-                &lt;Text&gt;接收到的数据：{ this.props.text }&lt;/Text&gt;
-                &lt;TouchableOpacity style={ styles.btn } onPress={ this.changePage.bind(this) }&gt;
-                    &lt;Text style={ styles.txt }&gt;点击返回上一页&lt;/Text&gt;
-                &lt;/TouchableOpacity&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-
-class FirstPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: &apos;&apos;
-        }
-    }
-    saveText(text) {
-        this.setState({
-            text: text
-        });
-    }
-    changePage() {
-        var nextRoute = {
-            component: SecondPage,
-            nextPass: {
-                text: this.state.text
-            }
-        };
-        this.props.navigator.push(nextRoute);
-    }
-    render() {
-        return (
-            &lt;View style={[ styles.first, styles.container ]}&gt;
-                &lt;TextInput placeholder={ &apos;请输入&apos; } style={ styles.input } onChangeText={ this.saveText.bind(this) }&gt;&lt;/TextInput&gt;
-                &lt;TouchableOpacity style={ styles.btn } onPress={ this.changePage.bind(this) }&gt;
-                    &lt;Text style={ styles.txt }&gt;点击进入下一页&lt;/Text&gt;
-                &lt;/TouchableOpacity&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: &apos;center&apos;,
-        justifyContent: &apos;center&apos;,
-    },
-    first: {
-        backgroundColor: &apos;cyan&apos;,
-    },
-    second: {
-        backgroundColor: &apos;pink&apos;,
-    },
-    input: {
-        height: 25,
-        borderWidth: 1,
-    },
-    btn: {
-        width: 150,
-        height: 20,
-        backgroundColor: &apos;yellow&apos;,
-        alignItems: &apos;center&apos;,
-        justifyContent: &apos;center&apos;,
-        borderRadius: 5,
-    },
-    txt: {
-
-    }
-});
-</code></pre><blockquote>
-<ol>
-<li>实现一个TabBar，要求至少包括四项，要求有四项标签</li>
-</ol>
-</blockquote>
-<pre><code>import React, { Component } from &apos;react&apos;;
-import {
-    TabBarIOS,
-    Text,
-    View,
-    StyleSheet
-} from &apos;react-native&apos;;
-
-// 引入三个图片
-import movieIcon from &apos;./../public/images/movie.png&apos;;
-import homeIcon from &apos;./../public/images/home.png&apos;;
-import picIcon from &apos;./../public/images/pic.png&apos;;
-import musicIcon from &apos;./../public/images/music.png&apos;;
-
-export default class TabBar2 extends Component {
-    constructor(props) {
-        super(props);
-        // 初始状态
-        this.state = {
-            isShow: &apos;首页&apos;
-        };
-    }
-    press(tabName) {
-        this.setState({
-            isShow: tabName
-        });
-    }
-    render() {
-        return (
-            &lt;TabBarIOS&gt;
-                &lt;TabBarIOS.Item
-                    title=&quot;首页&quot;
-                    icon={ homeIcon }
-                    onPress={ this.press.bind(this, &apos;首页&apos;) }
-                    selected={ this.state.isShow === &apos;首页&apos; }
-                &gt;
-                    &lt;FirstPage/&gt;
-                &lt;/TabBarIOS.Item&gt;
-                &lt;TabBarIOS.Item
-                    title=&quot;电影&quot;
-                    icon={ movieIcon }
-                    onPress={ this.press.bind(this, &apos;电影&apos;) }
-                    selected={ this.state.isShow === &apos;电影&apos; }
-                &gt;
-                    &lt;SecondPage/&gt;
-                &lt;/TabBarIOS.Item&gt;
-                &lt;TabBarIOS.Item
-                    title=&quot;相册&quot;
-                    icon={ picIcon }
-                    onPress={ this.press.bind(this, &apos;相册&apos;) }
-                    selected={ this.state.isShow === &apos;相册&apos; }
-                &gt;
-                    &lt;ThreePage/&gt;
-                &lt;/TabBarIOS.Item&gt;
-                &lt;TabBarIOS.Item
-                    title=&quot;音乐&quot;
-                    icon={ musicIcon }
-                    onPress={ this.press.bind(this, &apos;音乐&apos;) }
-                    selected={ this.state.isShow === &apos;音乐&apos; }
-                &gt;
-                    &lt;FourPage/&gt;
-                &lt;/TabBarIOS.Item&gt;
-            &lt;/TabBarIOS&gt;
-        );
-    }
-}
-
-class FourPage extends Component {
-    render() {
-        return (
-            &lt;View style={[ styles.container, styles.four ]}&gt;
-                &lt;Text&gt;这是第四个页面&lt;/Text&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-
-class ThreePage extends Component {
-    render() {
-        return (
-            &lt;View style={[ styles.container, styles.three ]}&gt;
-                &lt;Text&gt;这是第三个页面&lt;/Text&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-
-class SecondPage extends Component {
-    render() {
-        return (
-            &lt;View style={[ styles.container, styles.second ]}&gt;
-                &lt;Text&gt;这是第二个页面&lt;/Text&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-
-class FirstPage extends Component {
-    render() {
-        return (
-            &lt;View style={[ styles.container, styles.first ]}&gt;
-                &lt;Text&gt;这是第一个页面&lt;/Text&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: &apos;center&apos;,
-        justifyContent: &apos;center&apos;,
-    },
-    first: {
-        backgroundColor: &apos;yellow&apos;,
-    },
-    second: {
-        backgroundColor: &apos;red&apos;,
-    },
-    three: {
-        backgroundColor: &apos;blue&apos;
-    },
-    four: {
-        backgroundColor: &apos;pink&apos;
-    }
-});
-</code></pre><blockquote>
-<ol>
-<li>实现一个电影列表，要求通过网络请求读取数据，通过ListView实现，并且在数据加载时有loading组件</li>
-</ol>
-</blockquote>
+<h4 id="在主项目里新建一个文件CNAME，没有后缀哦，然后在里面写上自己需要绑定的域名"><a href="#在主项目里新建一个文件CNAME，没有后缀哦，然后在里面写上自己需要绑定的域名" class="headerlink" title="在主项目里新建一个文件CNAME，没有后缀哦，然后在里面写上自己需要绑定的域名"></a>在主项目里新建一个文件CNAME，没有后缀哦，然后在里面写上自己需要绑定的域名</h4><ul>
+<li>格式为：【自定义的名称.详细域名】</li>
+<li>示例为： iswka.ishelloworld.cn</li>
+<li>不要www前缀，iswka这是一个二级域名</li>
+</ul>
+<h4 id="然后去域名提供商，比如阿里云上去设置"><a href="#然后去域名提供商，比如阿里云上去设置" class="headerlink" title="然后去域名提供商，比如阿里云上去设置"></a>然后去域名提供商，比如阿里云上去设置</h4><ul>
+<li><p>找到域名，然后点击 “解析”</p>
+</li>
+<li><p>记录类型我们选择CNAME的方式，注意不要选择A记录(A记录指向的是IP) 。</p>
+</li>
+<li><p>然后修改主机记录</p>
+<ul>
+<li>格式为：你的github名称</li>
+<li>比如我的是 iswka</li>
+<li>备注：这是我们自定义的二级域名</li>
+</ul>
+</li>
+<li><p>最后修改记录值</p>
+<p>  修改格式为：你的github名称.github.io<br>  比如我的是：iswka.github.io</p>
+</li>
+<li><p>点击保存要不了10分钟就解析成功了,一般会立即生效。</p>
+</li>
+</ul>
+<h4 id="访问域名"><a href="#访问域名" class="headerlink" title="访问域名"></a>访问域名</h4><ul>
+<li>通过 “你的github名称.你的主域名”</li>
+<li>比如我的 iswka.ishelloworld.cn 就可以访问我们自己的主页了。</li>
+<li>备注：如果你访问的是github的地址(比如：<a href="http://iswka.github.io/)，那么也会跳转到你刚刚绑定的域名地址。" target="_blank" rel="external">http://iswka.github.io/)，那么也会跳转到你刚刚绑定的域名地址。</a></li>
+</ul>
 
           
         
@@ -900,7 +708,7 @@ const styles = StyleSheet.create({
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/markdown/basic/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/javascript/interview01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -922,8 +730,8 @@ const styles = StyleSheet.create({
             
               
                 
-                <a class="post-title-link" href="/2017/04/14/markdown/basic/" itemprop="url">
-                  MarkDown-快速入门
+                <a class="post-title-link" href="/2017/04/15/javascript/interview01/" itemprop="url">
+                  一些面试题01
                 </a>
               
             
@@ -939,8 +747,8 @@ const styles = StyleSheet.create({
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T13:25:28+08:00">
-                2017-04-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T19:22:34+08:00">
+                2017-04-15
               </time>
             
 
@@ -962,8 +770,8 @@ const styles = StyleSheet.create({
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">MarkDown</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -999,42 +807,96 @@ const styles = StyleSheet.create({
       
         
           
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>markdown是一门很容易上手的轻量级语言<br>这里提供一个Dingus,它是一个网页应用程序，可以将MarkDown文档转换成XHTML文档。</p>
-<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>一般由回车换行即可，MarkDown将该行为标识为一个段落【注意：这样的段落没有缩进】</p>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>MarkDown支持两种标题语法，Setext和tx形式。Setext用底限形式，利用=（最高阶标题）和-（第二阶标题）；<br>Atx是在行首插入1到6个#，对应HTML标题H1…H6。</p>
-<h3 id="区块代码"><a href="#区块代码" class="headerlink" title="区块代码"></a>区块代码</h3><p>区块代码使用Email形式的’&gt;’角括号</p>
-<h3 id="修辞和强调"><a href="#修辞和强调" class="headerlink" title="修辞和强调"></a>修辞和强调</h3><p>使用星号 <strong>(*)</strong> 和 <strong>(_)</strong> 底线标记需要强调的区段</p>
-<pre><code>_修辞和强调的区段_  等价于  &lt;em&gt;修辞和强调的区段&lt;/em&gt; 
-*修辞和强调的区段*  等价于  &lt;em&gt;修辞和强调的区段&lt;/em&gt;
+            <p>##### </p>
+<pre><code>1. var a = [];
+a[0] = 0;
+a[1] = 1;
+a[4] = 4;
+请问a.length的值是多少？a[3]的输出结果是什么？
 
-__修辞和强调的区段__  等价于  &lt;strong&gt;修辞和强调的区段&lt;/strong&gt; 
-**修辞和强调的区段**  等价于  &lt;strong&gt;修辞和强调的区段&lt;/strong&gt;
-</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表：</p>
-<p>使用星号（*）加号（+）减号（-）来作为列表的项目标记</p>
-<p>有序列表：</p>
-<p>一般是一个数字接着一个英文句点（.）作为项目标记</p>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>支持两种形式的链接语法： <strong>行内</strong> 和 <strong>参考</strong> 两种形式，两种都是使用角括号把文字转成链接。</p>
-<p>行内形式是直接在后面用括号直接接上链接</p>
-<pre><code>This is an [example link](http://example.com/).
-</code></pre><p>你也可以选择性的加上title属性</p>
-<pre><code>This is an [example link](http://example.com/ &quot;With a title&quot;).
-</code></pre><p>参考形式的链接让你可以为链接定一个名称，之后你可以在文件的其他地方定义该链接的内容。</p>
-<pre><code>I get 10 times more traffic from [Google][1] than from [baidu][2]
-or [MSN][3].
+答： 5 undefined
+</code></pre><p>##### </p>
+<pre><code>2. function Foo() {
+    var i = 0;
+    return function () {
+        console.log(i++);
+    }
+}
+var f1 = Foo();
+f2 = Foo();
+f1();
+f1();
+f2();
+console.log(i);
+请问打印输出的结果是多少？
 
-[1]: http://google.com/ &quot;Google&quot;
-[2]: http://baidu.com/ &quot;Baidu&quot;
-[3]: http://search.msn.com/ &quot;MSN&quot;
-</code></pre><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>图片的语法和链接一样，同样有行内和参考两种形式，</p>
-<p>行内形式</p>
-<pre><code>![alt text](/path/icon.png &quot;Title&quot;)
-</code></pre><p>参考形式</p>
-<pre><code>![alt text][id]
+答： 0  // f1 = Foo()相当于f1赋值为函数Foo()的返回值f1 = function() {
+    console.log(i ++);
+    }
 
-[id]: /path/icon.png &quot;Title&quot;
-</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>在一般的段落文字中，你可以使用反引号 ` 来标记代码区段，区段内的 &amp; 、 &lt; 和 &gt; 都会被转换成HTML实体，<br>这项特性让你可以很容易的在代码区段内插入HTML代码</p>
-<p>如果要建立一个已经格式化好的代码区块，只要每行缩进4个空格或者一个Tab就可以了。而 &amp; 、&lt; 和 &gt; 也一样会<br>转成HTML实体</p>
+    1  // 因为f1在上一次的基础上又执行了一次函数，i ++ ,是在同一块内存中。
 
+    0  
+
+    报错  // i 为 Foo内部的变量，全局不可访问，全局中没有i变量所以会报错。
+</code></pre><h5 id="请解释GET-POST的区别"><a href="#请解释GET-POST的区别" class="headerlink" title="请解释GET/POST的区别"></a>请解释GET/POST的区别</h5><p>GET请求：请求的数据会附加在URL之后，以？分割URL和传输数据，多个参数用&amp;链接。<br>    URL的拜年吗格式采用的ASCLL编码，而不是Unicode，即事说所有的非ASCLL字符都要编码<br>    之后再传输。</p>
+<p>POST请求：POST请求会把请求的数据放置在HTTP请求包的包体中。上面的item=bandsaw就是<br>    实际的传输数据。</p>
+<p>因此，GET请求的数据会暴露在地址栏中，而POST请求则不会。</p>
+<blockquote>
+<p>传输数据的大小</p>
+</blockquote>
+<p>在HTTP规范中，没有URL的长度和传输的数据大小进行限制。但是在实际开发过程中，对于GET，特定的<br>浏览器和服务器对URL的长度有限制。因此，在使用GET请求时，传输数据会受到URL长度的限制。</p>
+<p>对于POST，由于不是URL传值，理论上是不会受到限制的，但是实际上各个服务器会规定对POST提交数据<br>大小进行限制，Apache、IIS都有各自的配置。</p>
+<blockquote>
+<p>安全性</p>
+</blockquote>
+<p>GET是Form的默认方法，安全性相对比较低。</p>
+<h5 id="请你描述一下cookies-sessionStorage-和-localStorage-的区别？"><a href="#请你描述一下cookies-sessionStorage-和-localStorage-的区别？" class="headerlink" title="请你描述一下cookies, sessionStorage 和 localStorage 的区别？"></a>请你描述一下cookies, sessionStorage 和 localStorage 的区别？</h5><p>sessionStorage 和 localStorage 是HTML5 Web Storage API 提供的，可以方便的在web请求<br>之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器之间不必要地来回传递。</p>
+<p>sessionStorage、 localStorage、 cookie 都是浏览器端存储的数据，其中 sessionStorage的<br>概念很特别，引入了一个”浏览器窗口”的概念。sessionStorage是在同源的同窗口（或tab）中，始终存在<br>的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口<br>后，sessionStorage即被销毁。同时”独立”打开的不同窗口，即使是同一页面，sessionStorage对象也<br>是不同的。</p>
+<p>cookies会发送到服务器端。其余两个不会。</p>
+<p>Microsoft指出 Internet Explorer 8 增加 cookie 限制为每个域名50个，但IE7似乎也允许每个域名50个<br>cookie。 Firefox每个域名cookie限制为50个。Opera每个明月cookie限制为30个。Firefox和Safari<br>允许cookie多达4097个字节，包括名（name）、值（value）和等号。Opera允许cookie多达4096个字节，<br>包括名（name）、值（value）和等号。Internet Explorer允许 cookie多达4095个字节，包括：名（name）、<br>值（value）和等号。</p>
+<blockquote>
+<p>Cookie</p>
+<ul>
+<li>每个域名存储量比较小（各浏览器不同，大致4K)</li>
+<li>所有域名的存储量有限制（各浏览器不同，大致4K)</li>
+<li>有个数限制（各浏览器不同)</li>
+<li>会随请求发送到服务器。</li>
+</ul>
+<p>LocalStorage</p>
+<ul>
+<li>永久存储</li>
+<li>单个域名存储量比较大（推荐5MB，各浏览器不同）</li>
+<li>总体数量无限制</li>
+<li>SessionStorage</li>
+<li>只在Session内有效</li>
+<li>存储量更大（推荐没有限制，但实际上各浏览器也不同）</li>
+</ul>
+</blockquote>
+<h5 id="image-和-canvas-在处理图片的时候有什么区别？"><a href="#image-和-canvas-在处理图片的时候有什么区别？" class="headerlink" title="image 和 canvas 在处理图片的时候有什么区别？"></a>image 和 canvas 在处理图片的时候有什么区别？</h5><p>image 是通过对象的形式描述图片的</p>
+<p>canvas 通过专门的API将图片绘制在画布上</p>
+<h5 id="响应式布局的时候，轮播图使用两张不同的图片去适配大屏幕和超小屏幕，还是一张图片进行压缩适配不同终端，说明原因？"><a href="#响应式布局的时候，轮播图使用两张不同的图片去适配大屏幕和超小屏幕，还是一张图片进行压缩适配不同终端，说明原因？" class="headerlink" title="响应式布局的时候，轮播图使用两张不同的图片去适配大屏幕和超小屏幕，还是一张图片进行压缩适配不同终端，说明原因？"></a>响应式布局的时候，轮播图使用两张不同的图片去适配大屏幕和超小屏幕，还是一张图片进行压缩适配不同终端，说明原因？</h5><p>最好使用两张不同大小的图片去适配大屏幕和超小屏幕，这样可以针对不同设备的屏幕大小，来加载相应的图片，<br>减少超小屏幕设备的网络流量消耗，加快相应速度，同时防止图片在大屏幕下分辨率不够导致失真的问题。</p>
+<h5 id="例举3种强制类型转换和2种隐式类型转换"><a href="#例举3种强制类型转换和2种隐式类型转换" class="headerlink" title="例举3种强制类型转换和2种隐式类型转换"></a>例举3种强制类型转换和2种隐式类型转换</h5><p>强制（ parseInt parseFloat Number)</p>
+<p>隐式（ ==  ===)</p>
+<h5 id="ajax请求时，如何解析JSON数据"><a href="#ajax请求时，如何解析JSON数据" class="headerlink" title="ajax请求时，如何解析JSON数据"></a>ajax请求时，如何解析JSON数据</h5><ol>
+<li>JSOn.parse</li>
+<li>eval()</li>
+<li>new Function()</li>
+</ol>
+<h5 id="CSS-清除浮动的几种方法"><a href="#CSS-清除浮动的几种方法" class="headerlink" title="CSS 清除浮动的几种方法"></a>CSS 清除浮动的几种方法</h5><ul>
+<li>使用带clear属性的空元素</li>
+<li>使用CSS的overflow属性</li>
+<li>使用CSS的:after伪元素</li>
+<li>使用邻接元素处理</li>
+</ul>
+<h5 id="封装一个方法实现获取样式的兼容写法"><a href="#封装一个方法实现获取样式的兼容写法" class="headerlink" title="封装一个方法实现获取样式的兼容写法"></a>封装一个方法实现获取样式的兼容写法</h5><pre><code>function getStyle(ele, style) {
+    if (window.getComputedStyle) {
+        return getComputedStyle(ele, null)[style];
+    } else {
+        return obj.currentStyle(style);
+    }
+}
+</code></pre>
           
         
       
@@ -1072,7 +934,7 @@ or [MSN][3].
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1117,7 +979,7 @@ or [MSN][3].
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1128,7 +990,7 @@ or [MSN][3].
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1139,7 +1001,7 @@ or [MSN][3].
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

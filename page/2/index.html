@@ -312,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/react_native/at01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/react_native/at02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -334,8 +334,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/14/react_native/at01/" itemprop="url">
-                  组件之navigator、ListView
+                <a class="post-title-link" href="/2017/04/15/react_native/at02/" itemprop="url">
+                  组件之ActivityIndicator、WebView
                 </a>
               
             
@@ -351,7 +351,196 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T09:12:19+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T14:04:23+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ActivityIndicator-组件"><a href="#ActivityIndicator-组件" class="headerlink" title="ActivityIndicator 组件"></a>ActivityIndicator 组件</h3><h4 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h4><p>显示一个loading加载提示的符号。</p>
+<h4 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h4><ul>
+<li><p>animating bool</p>
+<p>  是否要显示指示器。默认为true</p>
+</li>
+<li><p>color string</p>
+<p>  滚轮的前景颜色（默认为灰色）</p>
+</li>
+<li><p>size enum(‘small’, ‘large’)</p>
+<p>  指示器的大小。small的高度为20，large的高度为36.</p>
+</li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
+import {
+    ActivityIndicator
+} from &apos;react-native&apos;;
+
+export default class activityIndicator extends Component {
+    render() {
+        return (
+            &lt;ActivityIndicator
+                style={{ marginTop: 100 }}
+                color=&quot;green&quot;
+                size=&quot;large&quot;
+            /&gt;
+        );
+    }
+}
+</code></pre><p><img src="../../../public/uploads/react_native/QQ20170415-0.png" alt="alt"></p>
+<h3 id="WebView-组件"><a href="#WebView-组件" class="headerlink" title="WebView 组件"></a>WebView 组件</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>创建一个原生的WebView，可以用于访问一个网页。</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p> webView,网络视图可以在这个内部引入别的网页，使用source进入引入</p>
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><pre><code>import React, { Component } from &apos;react&apos;;
+import {
+    WebView
+} from &apos;react-native&apos;;
+
+// 引入京东手机版
+export default class WebViewCom extends React.Component {
+    render() {
+        return (
+            &lt;WebView
+                source={{ url: 'http://m.jd.com' }}
+            /&gt;
+        );
+    }
+}
+</code></pre><p><img src="../../../public/uploads/react_native/at02_02.png" alt="alt"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/react_native/exercise05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王康">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/blog_head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/14/react_native/exercise05/" itemprop="url">
+                  练习题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T19:04:27+08:00">
                 2017-04-14
               </time>
             
@@ -411,406 +600,263 @@
       
         
           
-            <h2 id="Navigator"><a href="#Navigator" class="headerlink" title="Navigator"></a>Navigator</h2><p>使用导航器可以让你在应用的不同场景（页面）进行切换。导航器通过不同路由来分辨不同的场景。<br>利用renderScene方法，导航栏可以指定的路由来渲染场景</p>
-<p>可以通过configureScene属性获取指定路由对象的配置信息，从而改变场景的动画或者手势。查看<br>navigator.SceneConfigs来获取默认的动画和更多的场景配置选项。</p>
-<p>注意：这个组件本文说明简单，但使用上有一定难度。</p>
-<p>在使用该组件时，一般需要以下几步：</p>
+            <blockquote>
 <ol>
-<li><p>属性： </p>
-</li>
+<li>实现一个Navigator，要求包括跳转到新页面的新页面的回退，并且在页面切换时有数据传输</li>
 </ol>
-<ul>
-<li><p>configScene (function) </p>
-<p>  可选的函数，用来配置场景动画和手势。会带有两个参数调用，一个是当前路由，一个是当前的路由栈，<br>  然后它返回一个场景配置对象。</p>
-</li>
-<li><p>initialRoute (object) </p>
-<p>  定义启动加载的路由，路由是导航栏用来识别渲染场景的一个对象，initialRoute必须是initialRouteStack<br>  中的一个路由。initialRoute默认是initialRouteStack中最后一项。</p>
-</li>
-<li><p>initialRouteStack (object)</p>
-<p>  提供一个路由集合用来初始化。如果没有设置初始路由的话必须设置初始路由。如果没有提供该属性，它将默认被设置<br>  成一个只含有initialRoute的数组。</p>
-</li>
-<li><p>navigationBar (node)</p>
-<p>  可选参数，提供一个在场景切换的时候保持的导航条。</p>
-</li>
-<li><p>navigator (object)</p>
-<p>  可选参数，提供从父容器获得的导航器对象。</p>
-</li>
-<li><p>onDidFocus (function) </p>
-<p>  每当导航条切换完成或者初始化之后，调用此函数，参数为新场景的路由。</p>
-</li>
-<li><p>onWillFocus (function) </p>
-<p>  会在导航条切换之前调用，参数为目标路由。</p>
-</li>
-<li><p>renderScene (function) </p>
-<p>  必要参数。用来渲染指定参数路由的场景。调用的参数是路由和导航器。</p>
-</li>
-<li><p>senceStyle (View#style)</p>
-<p>  将会应用在每个场景容器上的样式。</p>
-</li>
-</ul>
-<h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>核心组件，用于高效地显示一个可以垂直滚动的变化的数据列表。最基本的使用方式就是创建一个<br>ListView.DataSource数据源，然后给它传递一个普通的数据数组，再使用数据源实例化一个ListView组件<br>，并且定义它的回调函数_renderRow。该函数会接受数组中每个数据作为参数。返回一个可渲染的组件。</p>
-<p>ListView还支持一些高级特性，这个本人还没有尝试，以后详解哈。</p>
-<p>属性：</p>
-<ul>
-<li><p>renderRow (function)</p>
-<p>  从数据源中接收一条数据，以及和它所在的section的ID。返回一个可渲染的组件来为这行数据进行渲染。默认情况下<br>  参数中的数据就是放进数据源的数据本身，不过也可以提供一些转换器。</p>
-<p>  如果某一行正在被高亮（通过调用highlightRow函数），ListView会得到相应的通知。当一行被高亮时，其两侧的分割线<br>  会被隐藏。行的高亮状态可以通过调用highlistRow(null)来重置。</p>
-</li>
-<li><p>renderHeader (function)</p>
-<p>  渲染页头。</p>
-</li>
-<li><p>renderSeparator (function) </p>
-<p>  如果提供了此属性，一个可渲染的组件会被渲染在每一行的下面。除了小节标题的前面的最后一行。在其上方的小节ID和行ID，以及<br>  邻近的行是否被高亮会作为参数被传递进来。</p>
-</li>
-</ul>
-<p>例子：</p>
-<pre><code>/**
- * 猫眼电影列表页
- * 数据
- * http://m.maoyan.com/movie/list.json?type=hot&amp;offset=0&amp;limit=1000
- */
-
-import React, { Component } from &apos;react&apos;;
+</blockquote>
+<pre><code>import React, { Component } from &apos;react&apos;;
 import {
-    ListView,
-    ActivityIndicator,
-    View,
+    Navigator,
     Text,
-    Image,
+    TextInput,
+    View,
+    TouchableOpacity,
     StyleSheet
 } from &apos;react-native&apos;;
 
-// 引入猫眼数据
-import movieData from &apos;./../public/json/maoyan.json&apos;;
-
-export default class MoveList extends Component {
-    constructor(props) {
-        super(props);
-        var ds = new ListView.DataSource({
-            rowHasChanged: (oldData, newData) =&gt; oldData !== newData
-        });
-        this.state = {
-            dataSource: ds
-        };
-    }
-
-    _renderHeader() {
-        return (
-            &lt;View style={ styles.header }&gt;
-                &lt;Text style={ styles.header_txt }&gt;猫眼热门电影&lt;/Text&gt;
-            &lt;/View&gt;
-        );
-    }
-
-    _renderRow(movie) {
-        return (
-            &lt;View style={ styles.row }&gt;
-                &lt;View style={ styles.left }&gt;
-                    &lt;Image source={{ uri: movie.img }} style={ styles.img }&gt;&lt;/Image&gt;
-                &lt;/View&gt;
-                &lt;View style={ styles.right }&gt;
-                    &lt;Text style={[ styles.nm, styles.txt_right ]}&gt;{ movie.nm }&lt;/Text&gt;
-                    &lt;Text style={[ styles.dir, styles.txt_right ]}&gt;导演：{ movie.dir }&lt;/Text&gt;
-                    &lt;Text style={[ styles.rt, styles.txt_right ]}&gt;上映时间：{ movie.rt }&lt;/Text&gt;
-                &lt;/View&gt;
-            &lt;/View&gt;
-        );
-    }
-
-    _renderSeparator() {
-        return (
-            &lt;View style={ styles.separator }&gt;&lt;/View&gt;
-        );
-    }
-
-    componentDidMount() {
-        // 把已经解析好的数据使用到我们的页面
-        var ds = new ListView.DataSource({
-            rowHasChanged: (oldData,newData) =&gt; oldData !== newData
-        });
-        this.setState({
-            dataSource: ds.cloneWithRows(movieData.data.movies)
-        });
-    }
+export default class Nav extends Component {
 
     render() {
+        // 初始化路由
+        var rootRoute = {
+            component: FirstPage,
+            nextPass: {}
+        };
         return (
-            &lt;ListView
-                style={ styles.container }
-                dataSource={ this.state.dataSource }
-                renderHeader={ this._renderHeader }
-                renderRow={ this._renderRow }
-                renderSeparator={ this._renderSeparator }
-            &gt;
+            &lt;Navigator
+                //{/* 设置默认的路由 */}
+                initialRoute={ rootRoute }
+                //{/* 切换页面方式 */}
+                configureScene={ (route) =&gt; Navigator.SceneConfigs.PushFromRight }
+                //{/* 确定要渲染的场景 */}
+                renderScene={ (route, navigator) =&gt; {
+                    // 找到要渲染的页面
+                    var Component = route.component;
+                    // 返回组件， 把组件的route 和 navigator
+                    // 把属性也传递过去
+                    return &lt;Component { ...route.nextPass } route={ route } navigator={ navigator }/&gt;
 
-            &lt;/ListView&gt;
+                }}
+            /&gt;
+        );
+    }
+}
+
+class SecondPage extends Component {
+    changePage() {
+        this.props.navigator.pop();
+    }
+    render() {
+        return (
+            &lt;View style={[ styles.second, styles.container ]}&gt;
+                &lt;Text&gt;接收到的数据：{ this.props.text }&lt;/Text&gt;
+                &lt;TouchableOpacity style={ styles.btn } onPress={ this.changePage.bind(this) }&gt;
+                    &lt;Text style={ styles.txt }&gt;点击返回上一页&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class FirstPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: &apos;&apos;
+        }
+    }
+    saveText(text) {
+        this.setState({
+            text: text
+        });
+    }
+    changePage() {
+        var nextRoute = {
+            component: SecondPage,
+            nextPass: {
+                text: this.state.text
+            }
+        };
+        this.props.navigator.push(nextRoute);
+    }
+    render() {
+        return (
+            &lt;View style={[ styles.first, styles.container ]}&gt;
+                &lt;TextInput placeholder={ &apos;请输入&apos; } style={ styles.input } onChangeText={ this.saveText.bind(this) }&gt;&lt;/TextInput&gt;
+                &lt;TouchableOpacity style={ styles.btn } onPress={ this.changePage.bind(this) }&gt;
+                    &lt;Text style={ styles.txt }&gt;点击进入下一页&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 25,
-        marginLeft: 10,
-        marginRight: 10,
-    },
-    header: {
-        height: 50,
-        justifyContent: &apos;center&apos;,
+        flex: 1,
         alignItems: &apos;center&apos;,
-        backgroundColor: &apos;pink&apos;,
-        borderRadius: 6,
-    },
-    header_txt: {
-        fontSize: 30,
-        color: &apos;darkgrey&apos;
-    },
-    row: {
-        height: 160,
-        flexDirection: &apos;row&apos;,
-        marginTop: 10,
-    },
-    left: {
-        width: 110,
-    },
-    right: {
         justifyContent: &apos;center&apos;,
     },
-    separator: {
-        height: 2,
-        backgroundColor: &apos;#ccc&apos;
+    first: {
+        backgroundColor: &apos;cyan&apos;,
     },
-    img: {
-        width: 100,
-        height: 150,
+    second: {
+        backgroundColor: &apos;pink&apos;,
     },
-    txt_right: {
-        marginBottom: 10
+    input: {
+        height: 25,
+        borderWidth: 1,
     },
-    nm: {
-        fontSize: 26,
-        fontWeight: &apos;bold&apos;,
+    btn: {
+        width: 150,
+        height: 20,
+        backgroundColor: &apos;yellow&apos;,
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+        borderRadius: 5,
     },
-    dir: {
-        fontSize: 16,
-        color: &apos;orange&apos;
-    },
-    rt: {
-        color: &apos;grey&apos;
+    txt: {
+
     }
 });
-</code></pre><p><strong>提示</strong> 有关猫眼数据，可点击链接接收JSON数据：<a href="http://m.maoyan.com/movie/list.json?type=hot&amp;offset=0&amp;limit=100【limit=?，这里输入的是你要获取电影信息的条目数，最多只能获取100条】" target="_blank" rel="external">http://m.maoyan.com/movie/list.json?type=hot&amp;offset=0&amp;limit=100【limit=?，这里输入的是你要获取电影信息的条目数，最多只能获取100条】</a></p>
-<p>效果图：<br>    <img src="./../../../public/uploads/react_native/at01_01.jpg" alt="alt "></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/angularjs/exercise01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王康">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/blog_head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/13/angularjs/exercise01/" itemprop="url">
-                  常见的Angular疑问解答
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T21:41:20+08:00">
-                2017-04-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/angularjs/" itemprop="url" rel="index">
-                    <span itemprop="name">AngularJS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="列举你所知道的angular指令（不少于10个）"><a href="#列举你所知道的angular指令（不少于10个）" class="headerlink" title="列举你所知道的angular指令（不少于10个）"></a>列举你所知道的angular指令（不少于10个）</h3><ol>
-<li>ng-bind</li>
-<li>ng-model</li>
-<li>ng-app</li>
-<li>ng-controller</li>
-<li>ng-init</li>
-<li>ng-repeat</li>
-<li>ng-hide</li>
-<li>ng-show</li>
-<li>ng-if</li>
-<li>ng-keydown</li>
+</code></pre><blockquote>
+<ol>
+<li>实现一个TabBar，要求至少包括四项，要求有四项标签</li>
 </ol>
-<h3 id="请写出一个双向数据绑定的例子"><a href="#请写出一个双向数据绑定的例子" class="headerlink" title="请写出一个双向数据绑定的例子"></a>请写出一个双向数据绑定的例子</h3><pre><code>&lt;div ng-app=&quot;myApp&quot; ng-init=&quot;name=&apos;John&apos;&quot;&gt;
-    &lt;p&gt;姓名：&lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;&lt;/p&gt;
-    &lt;p&gt;你输入的姓名：{{ name }}&lt;/p&gt;
-&lt;/div&gt;
-</code></pre><h3 id="请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行"><a href="#请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行" class="headerlink" title="请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行"></a>请列举写出angular的事件绑定，要求事件触发时会有相应的方法执行</h3><pre><code>&lt;body ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;
-    &lt;button ng-click=&quot;handler()&quot;&gt;&lt;/button&gt;
-    &lt;p ng-show=&quot;isShow&quot;&gt;隐藏/显示&lt;/p&gt;
-    &lt;script&gt;
-        var app = angular.module(&apos;myApp&apos;, []);
-        app.controller(&apos;myCtrl&apos;, function ($scope) {
-            $scope.isShow = true;
-            $scope.handler = function () {
-                $scope.isShow = !$scope.isShow;
-            }
+</blockquote>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import {
+    TabBarIOS,
+    Text,
+    View,
+    StyleSheet
+} from &apos;react-native&apos;;
+
+// 引入三个图片
+import movieIcon from &apos;./../public/images/movie.png&apos;;
+import homeIcon from &apos;./../public/images/home.png&apos;;
+import picIcon from &apos;./../public/images/pic.png&apos;;
+import musicIcon from &apos;./../public/images/music.png&apos;;
+
+export default class TabBar2 extends Component {
+    constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            isShow: &apos;首页&apos;
+        };
+    }
+    press(tabName) {
+        this.setState({
+            isShow: tabName
         });
-    &lt;/script&gt;
-&lt;/body&gt;
-</code></pre><h3 id="请举例写出angular自定义指令的方法"><a href="#请举例写出angular自定义指令的方法" class="headerlink" title="请举例写出angular自定义指令的方法"></a>请举例写出angular自定义指令的方法</h3><pre><code>app.directive(&apos;helloWorld&apos;, function () {
-    return (
-        template: &apos;&lt;h1&gt;自定义指令&lt;/h1&gt;&apos;
-    );
-});
-</code></pre><h3 id="请举例写出angular发请求的方法（如，发请求到http-localhost-8080-req-并写出返回的数据怎么得到"><a href="#请举例写出angular发请求的方法（如，发请求到http-localhost-8080-req-并写出返回的数据怎么得到" class="headerlink" title="请举例写出angular发请求的方法（如，发请求到http://localhost:8080/req),并写出返回的数据怎么得到"></a>请举例写出angular发请求的方法（如，发请求到<a href="http://localhost:8080/req),并写出返回的数据怎么得到" target="_blank" rel="external">http://localhost:8080/req),并写出返回的数据怎么得到</a></h3><pre><code>$http({
-    method: &apos;GET&apos;.
-    url: &apos;http://localhost:8080/req&apos;,
-}).then(function (res) {
-    // 成功的回调
-    console.log(res.data);
-}, function (err) {
-    // 失败的回调
-    console.log(err);
-});
-</code></pre><h3 id="ng-show-ng-hide-与-ng-if-的区别？"><a href="#ng-show-ng-hide-与-ng-if-的区别？" class="headerlink" title="ng-show/ng-hide 与 ng-if 的区别？"></a>ng-show/ng-hide 与 ng-if 的区别？</h3><p>ng-show/ng-hide: 显示或者隐藏HTML元素<br>ng-if: 如果条件为false移除HTML元素，如果条件为true，会添加移除元素，并显示。<br>两者之间最大的区别就是ng-hide是隐藏而ng-if是对DOM进行移除</p>
-<h3 id="解释下什么事-rootScope-以及和-scope-的区别？"><a href="#解释下什么事-rootScope-以及和-scope-的区别？" class="headerlink" title="解释下什么事$rootScope 以及和 $scope 的区别？"></a>解释下什么事$rootScope 以及和 $scope 的区别？</h3><p>scope是angularJS中作用域（其实就是存储数据的地方），很类似javascript的原型链。搜索的时候，<br>优先找自己的scope，如果没有找到就沿着作用域链向上搜索，直至到达根作用域rootScope。</p>
-<p>$rootScope是由angularJS加载模块的时候自动创建的，每个模块只会有1个rootScope。rootScope创建<br>好会以拂去的形式加入到$injector中。也就是说通过$injector.get(‘$rootScope’);能够获取到某个<br>模块的根作用域。更准确的来说，$rootScope是由angularJS的核心模块ng创建的。</p>
-<p>scope是html和单个controller之间的桥梁，数据绑定就靠它了。rootScope是各个controller中<br>scope的桥梁。用rootScope定义的值，可以在各个controller中使用。</p>
-<h3 id="Angular-Directive中restrict-中分别可以怎样设置？"><a href="#Angular-Directive中restrict-中分别可以怎样设置？" class="headerlink" title="Angular Directive中restrict 中分别可以怎样设置？"></a>Angular Directive中restrict 中分别可以怎样设置？</h3><p>restrict中可以分别设置：<br>A 匹配属性<br>E 匹配标签<br>C 匹配Class<br>M 匹配注释<br>AECM 混合匹配</p>
-<h3 id="ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？"><a href="#ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？" class="headerlink" title="ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？"></a>ng-click中写的表达式，能使用JS原生对象上的方法吗？为什么？如果不能该如何实现？</h3><p>不能使用，首先它们两个的作用域是不同，ng-click的作用域是在Angular特有的控制器内的，angular的所有的方法和属性都在控制器中的$scope中,而原生的作用域是全局的。</p>
-<p>如何实现：我们可以在ng-click表达式中调用$scope存在的方法名，然后再改方法名中可以调用JS原生对象的方法。</p>
-<p>举例说明：</p>
-<pre><code>&lt;div app=&quot;myApp&quot; controller=&quot;myCtrl&quot;&gt;
-    &lt;p ng-click=&quot;handler()&quot;&gt;找你零钱：{{ money }}&lt;/p&gt;
-&lt;/div&gt;
+    }
+    render() {
+        return (
+            &lt;TabBarIOS&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;首页&quot;
+                    icon={ homeIcon }
+                    onPress={ this.press.bind(this, &apos;首页&apos;) }
+                    selected={ this.state.isShow === &apos;首页&apos; }
+                &gt;
+                    &lt;FirstPage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;电影&quot;
+                    icon={ movieIcon }
+                    onPress={ this.press.bind(this, &apos;电影&apos;) }
+                    selected={ this.state.isShow === &apos;电影&apos; }
+                &gt;
+                    &lt;SecondPage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;相册&quot;
+                    icon={ picIcon }
+                    onPress={ this.press.bind(this, &apos;相册&apos;) }
+                    selected={ this.state.isShow === &apos;相册&apos; }
+                &gt;
+                    &lt;ThreePage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+                &lt;TabBarIOS.Item
+                    title=&quot;音乐&quot;
+                    icon={ musicIcon }
+                    onPress={ this.press.bind(this, &apos;音乐&apos;) }
+                    selected={ this.state.isShow === &apos;音乐&apos; }
+                &gt;
+                    &lt;FourPage/&gt;
+                &lt;/TabBarIOS.Item&gt;
+            &lt;/TabBarIOS&gt;
+        );
+    }
+}
 
-&lt;script&gt;
-    var app = angular.module(&apos;myApp&apos;, []);
-    app.controller(&apos;myCtrl&apos;, function ($scope) {
-        $scope.money = 3.33;
-        $scope.handler = function () {
-            // 这里使用JS原生的parseInt()方法
-            return parseInt($scope.money);
-        }
-    });
+class FourPage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.four ]}&gt;
+                &lt;Text&gt;这是第四个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
 
-&lt;/script&gt;
-</code></pre><h3 id="angular中的-http是什么，有什么特点？"><a href="#angular中的-http是什么，有什么特点？" class="headerlink" title="angular中的$http是什么，有什么特点？"></a>angular中的$http是什么，有什么特点？</h3><p>$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。（类似jquery的$.ajax的对象）<br>特点：<br>可以在响应返回时用then方法来处理回调。如果使用then方法，会得到一个特殊的参数，<br>它代表了相应对象的成功或失败信息，还可以接受两个可选的函数作为参数。或者可以使用success和error回调代替。</p>
+class ThreePage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.three ]}&gt;
+                &lt;Text&gt;这是第三个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class SecondPage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.second ]}&gt;
+                &lt;Text&gt;这是第二个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+class FirstPage extends Component {
+    render() {
+        return (
+            &lt;View style={[ styles.container, styles.first ]}&gt;
+                &lt;Text&gt;这是第一个页面&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+    },
+    first: {
+        backgroundColor: &apos;yellow&apos;,
+    },
+    second: {
+        backgroundColor: &apos;red&apos;,
+    },
+    three: {
+        backgroundColor: &apos;blue&apos;
+    },
+    four: {
+        backgroundColor: &apos;pink&apos;
+    }
+});
+</code></pre><blockquote>
+<ol>
+<li>实现一个电影列表，要求通过网络请求读取数据，通过ListView实现，并且在数据加载时有loading组件</li>
+</ol>
+</blockquote>
 
           
         
@@ -854,7 +900,7 @@ const styles = StyleSheet.create({
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/react_native/react/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/markdown/basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王康">
@@ -876,8 +922,8 @@ const styles = StyleSheet.create({
             
               
                 
-                <a class="post-title-link" href="/2017/04/13/react_native/react/" itemprop="url">
-                  react
+                <a class="post-title-link" href="/2017/04/14/markdown/basic/" itemprop="url">
+                  MarkDown-快速入门
                 </a>
               
             
@@ -893,8 +939,8 @@ const styles = StyleSheet.create({
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T16:47:58+08:00">
-                2017-04-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T13:25:28+08:00">
+                2017-04-14
               </time>
             
 
@@ -916,8 +962,8 @@ const styles = StyleSheet.create({
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react-native/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
+                  <a href="/categories/markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">MarkDown</span>
                   </a>
                 </span>
 
@@ -953,7 +999,41 @@ const styles = StyleSheet.create({
       
         
           
-            <p>hello world, i from react.md</p>
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>markdown是一门很容易上手的轻量级语言<br>这里提供一个Dingus,它是一个网页应用程序，可以将MarkDown文档转换成XHTML文档。</p>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>一般由回车换行即可，MarkDown将该行为标识为一个段落【注意：这样的段落没有缩进】</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>MarkDown支持两种标题语法，Setext和tx形式。Setext用底限形式，利用=（最高阶标题）和-（第二阶标题）；<br>Atx是在行首插入1到6个#，对应HTML标题H1…H6。</p>
+<h3 id="区块代码"><a href="#区块代码" class="headerlink" title="区块代码"></a>区块代码</h3><p>区块代码使用Email形式的’&gt;’角括号</p>
+<h3 id="修辞和强调"><a href="#修辞和强调" class="headerlink" title="修辞和强调"></a>修辞和强调</h3><p>使用星号 <strong>(*)</strong> 和 <strong>(_)</strong> 底线标记需要强调的区段</p>
+<pre><code>_修辞和强调的区段_  等价于  &lt;em&gt;修辞和强调的区段&lt;/em&gt; 
+*修辞和强调的区段*  等价于  &lt;em&gt;修辞和强调的区段&lt;/em&gt;
+
+__修辞和强调的区段__  等价于  &lt;strong&gt;修辞和强调的区段&lt;/strong&gt; 
+**修辞和强调的区段**  等价于  &lt;strong&gt;修辞和强调的区段&lt;/strong&gt;
+</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表：</p>
+<p>使用星号（*）加号（+）减号（-）来作为列表的项目标记</p>
+<p>有序列表：</p>
+<p>一般是一个数字接着一个英文句点（.）作为项目标记</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>支持两种形式的链接语法： <strong>行内</strong> 和 <strong>参考</strong> 两种形式，两种都是使用角括号把文字转成链接。</p>
+<p>行内形式是直接在后面用括号直接接上链接</p>
+<pre><code>This is an [example link](http://example.com/).
+</code></pre><p>你也可以选择性的加上title属性</p>
+<pre><code>This is an [example link](http://example.com/ &quot;With a title&quot;).
+</code></pre><p>参考形式的链接让你可以为链接定一个名称，之后你可以在文件的其他地方定义该链接的内容。</p>
+<pre><code>I get 10 times more traffic from [Google][1] than from [baidu][2]
+or [MSN][3].
+
+[1]: http://google.com/ &quot;Google&quot;
+[2]: http://baidu.com/ &quot;Baidu&quot;
+[3]: http://search.msn.com/ &quot;MSN&quot;
+</code></pre><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>图片的语法和链接一样，同样有行内和参考两种形式，</p>
+<p>行内形式</p>
+<pre><code>![alt text](/path/icon.png &quot;Title&quot;)
+</code></pre><p>参考形式</p>
+<pre><code>![alt text][id]
+
+[id]: /path/icon.png &quot;Title&quot;
+</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>在一般的段落文字中，你可以使用反引号 ` 来标记代码区段，区段内的 &amp; 、 &lt; 和 &gt; 都会被转换成HTML实体，<br>这项特性让你可以很容易的在代码区段内插入HTML代码</p>
+<p>如果要建立一个已经格式化好的代码区块，只要每行缩进4个空格或者一个Tab就可以了。而 &amp; 、&lt; 和 &gt; 也一样会<br>转成HTML实体</p>
 
           
         
@@ -992,7 +1072,7 @@ const styles = StyleSheet.create({
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1037,7 +1117,7 @@ const styles = StyleSheet.create({
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1048,7 +1128,7 @@ const styles = StyleSheet.create({
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1059,7 +1139,7 @@ const styles = StyleSheet.create({
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
